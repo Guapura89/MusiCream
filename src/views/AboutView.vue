@@ -1,16 +1,19 @@
 <template>
-  <div class="w-100 text-center">
-    <h1>Hello {{ name }}</h1>
-  </div>
+  <Header />
+  <h1>Hello {{ name }}</h1>
 </template>
 
 <script>
+import Header from "@/components/Header.vue";
 export default {
   name: "AboutView",
   data() {
     return {
       name: "Carlos",
     };
+  },
+  components: {
+    Header,
   },
 };
 </script>
