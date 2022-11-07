@@ -1,14 +1,18 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-    <div class="progress w-50 mx-auto">
-      <div
-        class="progress-bar w-75"
-        role="progressbar"
-        aria-valuenow="75"
-        aria-valuemin="0"
-        aria-valuemax="100"
-      ></div>
-    </div>
+  <div class="w-100 text-center">
+    <h1>Hello {{ name }}</h1>
   </div>
 </template>
+
+<script>
+export default {
+  name: "AboutView",
+  data() {
+    return {
+      name: "Carlos",
+    };
+  },
+};
+</script>
+
+<style lang="scss"></style>
