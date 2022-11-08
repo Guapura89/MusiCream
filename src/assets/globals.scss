@@ -38,30 +38,3 @@ a {
 li {
   list-style: none;
 }
-
-#fetchingData__screen {
-  width: 100vw;
-  height: 100vh;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.blur {
-  filter: blur(4px);
-}
-
-.hide {
-  display: none;
-}
-
-.user-goals__list {
-  margin: 0 0 300px;
-}
-
-#goal-per {
-  width: 650px;
-  // min-width: 100%;
-  // max-width: 850px;
-}

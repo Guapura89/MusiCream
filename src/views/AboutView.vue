@@ -1,10 +1,10 @@
 <template>
-  <Header />
+  <!-- <Header /> -->
   <h1>Hello {{ name }}</h1>
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
+//import Header from "@/components/Header.vue";
 export default {
   name: "AboutView",
   data() {
@@ -13,7 +13,7 @@ export default {
     };
   },
   components: {
-    Header,
+    //Header,
   },
 };
 </script>

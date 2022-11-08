@@ -4,5 +4,6 @@ import App from "./App.vue";
 import router from "./router";
 import "bootstrap/dist/js/bootstrap.js";
 import "./assets/style.scss";
+import AOS from "aos";
 
-createApp(App).use(router).mount("#app");
+createApp(App).use(router, AOS.init()).mount("#app");

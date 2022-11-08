@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-light">
+  <nav class="navbar bg-secondary navbar-expand-lg">
     <div class="container-fluid">
       <router-link class="navbar-brand" to="/"
         ><h1 class="fw-bold">MusiCream</h1></router-link
@@ -18,10 +18,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto me-4 align-items-center">
           <li class="nav-item mx-1">
-            <router-link
-              class="nav-link active py-auto"
-              aria-current="page"
-              to="/"
+            <router-link class="nav-link py-auto" to="/"
               ><h5 class="d-inline">Home</h5></router-link
             >
           </li>
