@@ -1,6 +1,9 @@
 <template>
-  <nav class="navbar bg-secondary navbar-expand-lg">
-    <div class="container-fluid">
+  <nav
+    class="navbar navbar-expand-lg navbar-dark"
+    style="position: absolute; width: 100%; z-index: 2"
+  >
+    <div class="container">
       <router-link class="navbar-brand" to="/"
         ><h1 class="fw-bold">MusiCream</h1></router-link
       >
@@ -19,17 +22,20 @@
         <ul class="navbar-nav ms-auto me-4 align-items-center">
           <li class="nav-item mx-1">
             <router-link class="nav-link py-auto" to="/"
-              ><h5 class="d-inline">Home</h5></router-link
+              ><h5 class="d-inline fw-bold">Home</h5></router-link
             >
           </li>
+
           <li class="nav-item mx-1">
-            <router-link class="nav-link" to="/about"
-              ><h5 class="d-inline">About</h5></router-link
+            <router-link class="nav-link" to="##albums-title1"
+              ><h5 class="d-inline fw-bold">Music</h5></router-link
             >
+            <p @click="scrollToBottom">hello</p>
           </li>
+
           <li class="nav-item mx-1">
             <router-link class="nav-link" to="/"
-              ><h5 class="d-inline">Music</h5></router-link
+              ><h5 class="d-inline fw-bold">About</h5></router-link
             >
           </li>
           <li class="nav-item mx-1">
@@ -49,6 +55,14 @@
 <script>
 export default {
   name: "HeaderC",
+  data() {
+    return {};
+  },
+  methods: {
+    scrollToBottom() {
+      this.$refs["albums-title-1"].scrollIntoView({ behavior: "smooth" });
+    },
+  },
 };
 </script>
 
