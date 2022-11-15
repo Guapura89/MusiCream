@@ -24,13 +24,13 @@
             <router-link class="nav-link py-auto" to="/"
               ><h5 class="d-inline fw-bold">Home</h5></router-link
             >
+            <p @click="scrollToBottom">hello</p>
           </li>
 
           <li class="nav-item mx-1">
             <router-link class="nav-link" to="##albums-title1"
               ><h5 class="d-inline fw-bold">Music</h5></router-link
             >
-            <p @click="scrollToBottom">hello</p>
           </li>
 
           <li class="nav-item mx-1">
@@ -53,14 +53,20 @@
 </template>
 
 <script>
+//import AppVue from "@/App.vue";
+import HomeView from "@/views/HomeView.vue";
 export default {
   name: "HeaderC",
   data() {
     return {};
   },
+  components: {
+    // eslint-disable-next-line vue/no-unused-components
+    HomeView,
+  },
   methods: {
     scrollToBottom() {
-      this.$refs["albums-title-1"].scrollIntoView({ behavior: "smooth" });
+      HomeView.$refs["albums-title-1"].scrollIntoView({ behavior: "smooth" });
     },
   },
 };

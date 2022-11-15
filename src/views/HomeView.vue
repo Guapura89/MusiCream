@@ -1,9 +1,65 @@
 <template>
   <div class="home">
     <div class="home__container">
+      <!-- navbar -->
+      <nav
+        class="navbar navbar-expand-lg navbar-dark"
+        style="position: absolute; width: 100%; z-index: 2"
+      >
+        <div class="container">
+          <a class="navbar-brand"><h1 class="fw-bold">MusiCream</h1></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto me-4 align-items-center">
+              <li class="nav-item mx-1">
+                <a @click="scrollToHome" class="nav-link py-auto"
+                  ><h5 class="d-inline fw-bold">Home</h5></a
+                >
+              </li>
+
+              <li class="nav-item mx-1">
+                <a @click="scrollToMusic" class="nav-link"
+                  ><h5 class="d-inline fw-bold">Music</h5></a
+                >
+              </li>
+
+              <li class="nav-item mx-1">
+                <a @click="scrollToAbout" class="nav-link"
+                  ><h5 class="d-inline fw-bold">About</h5></a
+                >
+              </li>
+              <li class="nav-item mx-1">
+                <a @click="scrollToContact" class="nav-link"
+                  ><h5 class="d-inline fw-bold">Contact us</h5></a
+                >
+              </li>
+              <li class="nav-item mx-1">
+                <a class="nav-link text-light"
+                  ><img
+                    style="width: 40px"
+                    src="https://cdn-icons-png.flaticon.com/128/4400/4400828.png"
+                    alt="signout"
+                    @click="signout"
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
       <!-- Welcome container -->
       <div class="row wellcome__container">
         <div
+          ref="wellcome__container"
           class="wellcome-item__container col-12 col-md-6 p-1 p-md-4 d-flex flex-column justify-content-center text-center text-white"
         >
           <div class="w-50 mx-auto">
@@ -35,7 +91,7 @@
         </div>
       </div>
 
-      <div class="albums-title text-center my-5" id="albums-title">
+      <div class="albums-title text-center my-5" ref="albums-title">
         <h1 class="fw-bold my-5">Most popular albums</h1>
       </div>
 
@@ -45,32 +101,65 @@
           <div
             v-for="(album, idx) in albums"
             :key="idx"
-            class="col-12 col-md-5 col-lg-3 my-5 mx-3 text-center album__card"
+            class="col-12 col-sm-5 col-md-5 col-lg-3 my-5 mx-3 text-center album__card"
             data-aos="zoom-in"
-            data-aos-duration="500"
+            data-aos-duration="1000"
           >
             <div class="p-3">
               <div class="card-title my-3">
                 <h4 class="fw-bold">{{ album.title }}</h4>
               </div>
-              <img class="w-50" src="../assets/images/cd.png" alt="song-img" />
+              <img
+                class="disc w-50"
+                src="../assets/images/cd.png"
+                alt="song-img"
+              />
               <p class="fw-bold my-3">{{ album.artist }}</p>
             </div>
           </div>
         </div>
       </div>
 
+      <!-- About section -->
+      <div ref="about__section"></div>
+      <div class="about__section">
+        <div class="row">
+          <div
+            class="about-left d-flex justify-content-center align-items-center col-12 col-md-6 my-3"
+          >
+            <div>
+              <h1 class="fw-bold">
+                What is <span class="text-primary">MusiCream</span>?
+              </h1>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio
+                animi rerum minima architecto provident aspernatur placeat
+                dolorum, aut quidem error eos nostrum est quae maiores nam
+                soluta a veritatis recusandae!
+              </p>
+            </div>
+          </div>
+          <div class="about-right col-12 col-md-6 my-3">
+            <div>
+              <img
+                data-aos="fade-left"
+                data-aos-duration="1000"
+                src="https://images.pexels.com/photos/3756949/pexels-photo-3756949.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Get in touch section -->
+      <div ref="contact__section" class="mt-1 text-light">;</div>
       <div class="container contact-section">
         <div class="text-center my-5">
           <h1 class="fw-bold">Get in touch</h1>
         </div>
         <div class="contact__card w-100">
-          <form
-            class="contact__form w-75 mx-auto"
-            ref="albums-title-1"
-            id="albums-title1"
-          >
+          <form class="contact__form w-75 mx-auto">
             <div class="form-floating">
               <input
                 class="form-control mb-5"
@@ -119,9 +208,43 @@
       </div>
     </div>
   </div>
+
+  <!-- navbar section -->
+  <div class="footer container-fluid bg-dark text-light">
+    <div class="container">
+      <footer
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top"
+      >
+        <h4 class="col-md-4 mb-0">&copy; 2022 MusicCream, Inc</h4>
+
+        <a
+          href="/"
+          class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+        >
+          <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap" />
+          </svg>
+        </a>
+
+        <ul class="nav col-md-4 justify-content-end">
+          <li class="nav-item">
+            <a
+              @click="scrollToHome"
+              class="nav-link px-2 text-lighnav a:hover { color: #4b8d8f; }t fw-bold"
+              >Back to top</a
+            >
+          </li>
+        </ul>
+      </footer>
+    </div>
+  </div>
 </template>
 
 <script>
+import { getAuth, signOut } from "firebase/auth";
+import router from "@/router";
+import Swal from "sweetalert2";
+
 export default {
   name: "HomeView",
   data() {
@@ -140,6 +263,11 @@ export default {
       name: "",
       email: "",
       msg: "",
+      userEmail: "",
+      password: "",
+      uemail: "",
+      upassword: "",
+      urepassword: "",
     };
   },
   computed: {
@@ -149,6 +277,51 @@ export default {
       } else return false;
     },
   },
+  methods: {
+    scrollToHome() {
+      this.$refs["wellcome__container"].scrollIntoView({ behavior: "smooth" });
+    },
+    scrollToMusic() {
+      this.$refs["albums-title"].scrollIntoView({ behavior: "smooth" });
+    },
+    scrollToAbout() {
+      this.$refs["about__section"].scrollIntoView({ behavior: "smooth" });
+    },
+    scrollToContact() {
+      this.$refs["contact__section"].scrollIntoView({ behavior: "smooth" });
+    },
+    signout() {
+      const auth = getAuth();
+      signOut(auth)
+        .then(() => {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", Swal.stopTimer);
+              toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+          });
+
+          Toast.fire({
+            icon: "success",
+            title: "Signed out successfully",
+          });
+          router.push("/");
+        })
+        .catch((error) => {
+          Swal.fire({
+            title: "Invalid email",
+            text: error,
+            icon: "question",
+            confirmButtonText: "OK",
+          });
+        });
+    },
+  },
 };
 </script>
 
@@ -156,12 +329,16 @@ export default {
 .home {
   .wellcome__container {
     margin: 0 0 200px 0;
-    background-image: url("https://images.unsplash.com/photo-1636955735635-b4c0fd54f360?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTZ8fHJvdW5kZWR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+    background-image: url("https://images.pexels.com/photos/1389429/pexels-photo-1389429.jpeg?auto=compress&cs=tinysrgb&w=1600");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     height: 100vh;
+
+    nav a:hover {
+      color: white;
+    }
     .wellcome-item__container {
       backdrop-filter: brightness(50%);
       .img-container {
@@ -222,13 +399,33 @@ export default {
       transition: all 0.5s ease-in-out;
     }
     &:hover {
-      cursor: pointer;
+      cursor: url("../assets/images/add-to-cart.png"), auto;
       transform: scale(1.05);
-      img {
+      .disc {
         transition: all 0.5s ease-in-out;
         animation-name: rotation2;
         animation-duration: 5s;
         animation-iteration-count: infinite;
+      }
+    }
+  }
+
+  //about section styles
+  .about__section {
+    margin: 200px 0;
+    .about-left {
+      div {
+        width: 50%;
+
+        @media (max-width: 800px) {
+          width: 90%;
+        }
+      }
+    }
+
+    .about-right {
+      img {
+        width: 100%;
       }
     }
   }
@@ -316,5 +513,10 @@ export default {
   100% {
     transform: rotate(36 * 10deg);
   }
+}
+.footer {
+  height: 200px;
+  display: flex;
+  align-items: center;
 }
 </style>
