@@ -62,9 +62,13 @@
           ref="wellcome__container"
           class="wellcome-item__container col-12 col-md-6 p-1 p-md-4 d-flex flex-column justify-content-center text-center text-white"
         >
-          <div class="w-50 mx-auto">
+          <div class="info w-50 mx-auto">
             <h1 class="fw-bold">Welcome to MusiCream</h1>
             <p>The website to buy the albums that you love.</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem,
+              inventore.
+            </p>
           </div>
         </div>
         <div
@@ -137,6 +141,11 @@
                 dolorum, aut quidem error eos nostrum est quae maiores nam
                 soluta a veritatis recusandae!
               </p>
+              <div class="text-center w-100 mt-5">
+                <button class="btn btn-primary mx-auto px-5 pt-2 text-white">
+                  <router-link to="/dashboard">Dashboard</router-link>
+                </button>
+              </div>
             </div>
           </div>
           <div class="about-right col-12 col-md-6 my-3">
@@ -341,6 +350,7 @@ export default {
     }
     .wellcome-item__container {
       backdrop-filter: brightness(50%);
+
       .img-container {
         position: relative;
         .note-img1 {
@@ -376,10 +386,14 @@ export default {
 
         @media (max-width: 580px) {
           .note-img1,
-          .note-img2,
           .note-img3 {
             display: none;
           }
+        }
+      }
+      @media (max-width: 1000px) {
+        .info {
+          margin-top: 100px;
         }
       }
     }
